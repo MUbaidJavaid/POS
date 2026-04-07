@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 200 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 25% 10%;
+
+    --primary: 174 100% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 145 50% 62%;
+    --secondary-foreground: 200 25% 10%;
+
+    --muted: 210 15% 93%;
+    --muted-foreground: 200 10% 45%;
+
+    --accent: 174 60% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 89%;
+    --input: 210 15% 89%;
+    --ring: 174 100% 25%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 200 25% 8%;
+    --sidebar-foreground: 210 15% 85%;
+    --sidebar-primary: 174 100% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 20% 14%;
+    --sidebar-accent-foreground: 210 15% 90%;
+    --sidebar-border: 200 20% 16%;
+    --sidebar-ring: 174 100% 40%;
+
+    --success: 145 63% 42%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  .dark {
+    --background: 200 25% 6%;
+    --foreground: 210 15% 90%;
+    --card: 200 25% 9%;
+    --card-foreground: 210 15% 90%;
+    --popover: 200 25% 9%;
+    --popover-foreground: 210 15% 90%;
+    --primary: 174 100% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 145 50% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 200 20% 14%;
+    --muted-foreground: 210 10% 55%;
+    --accent: 174 60% 35%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 200 20% 16%;
+    --input: 200 20% 16%;
+    --ring: 174 100% 40%;
+    --sidebar-background: 200 25% 5%;
+    --sidebar-foreground: 210 15% 80%;
+    --sidebar-primary: 174 100% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 20% 10%;
+    --sidebar-accent-foreground: 210 15% 85%;
+    --sidebar-border: 200 20% 12%;
+    --sidebar-ring: 174 100% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .pos-card {
+    @apply bg-card rounded-xl border border-border shadow-sm transition-all duration-200;
+  }
+  .pos-card:hover {
+    @apply shadow-md;
+    transform: translateY(-2px);
+  }
+  .pos-btn-primary {
+    @apply bg-primary text-primary-foreground rounded-lg px-4 py-2 font-medium transition-all duration-150;
+  }
+  .pos-btn-primary:hover {
+    @apply opacity-90;
+    transform: scale(1.02);
+  }
+  .pos-btn-primary:active {
+    transform: scale(0.98);
+  }
+  .pos-input {
+    @apply bg-background border border-input rounded-lg px-3 py-2 text-sm transition-all duration-200 outline-none;
+  }
+  .pos-input:focus {
+    @apply ring-2 ring-ring/30 border-primary;
+  }
+  .pos-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .pos-badge-success {
+    @apply bg-[hsl(var(--success)/0.1)] text-[hsl(var(--success))];
+  }
+  .pos-badge-warning {
+    @apply bg-[hsl(var(--warning)/0.1)] text-[hsl(var(--warning))];
+  }
+  .pos-badge-danger {
+    @apply bg-destructive/10 text-destructive;
+  }
+}
+
+@layer utilities {
+  .animate-bounce-in {
+    animation: bounceIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

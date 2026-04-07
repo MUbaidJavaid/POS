@@ -1,0 +1,5 @@
+[
+  {"id":"c1","name":"Alice Johnson","email":"alice@email.com","phone":"+1-555-0101","address":"123 Main St","loyaltyPoints":250,"createdAt":"2024-01-05T10:00:00Z"},
+  {"id":"c2","name":"Bob Smith","email":"bob@email.com","phone":"+1-555-0102","address":"456 Oak Ave","loyaltyPoints":180,"createdAt":"2024-01-06T10:00:00Z"},
+  {"id":"c3","name":"Carol Williams","email":"carol@email.com","phone":"+1-555-0103","address":"789 Pine Rd","loyaltyPoints":420,"createdAt":"2024-01-07T10:00:00Z"}
+]
